@@ -1,43 +1,61 @@
-<?php
-if (isset($_POST['topla']))
-{
-	echo $_POST['birincisayi'] + $_POST['ikincisayi'];
-}
-elseif(isset($_POST['cikar']))
-{
-	echo $_POST['birincisayi'] - $_POST['ikincisayi'];
-}
 
-elseif(isset($_POST['button2']))
-{
-	echo $_POST['birincisayi'] * $_POST['ikincisayi'];
-}
 
-elseif(isset($_POST['button3']))
-{
-	echo $_POST['birincisayi'] / $_POST['ikincisayi'];
-}
-	
-else {
 
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    #operator{
+    width: 20%;
+	height: 7%;
+	}
+	input:hover{
+		border: 2px solid #BEA57D;
+		color: #BEA57D;
+		background-color:black;
+	}
+	body{
+		align-items: center;
+        background-color: #BEA57D;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+		color: white;
+	}
+	#myvalue{
+		width:80%;
+	}
 
-<form name="form1" method="post" action="">
-  <p>
-    <label for="birincisayi">Birinci Sayı:</label>
-    <input type="text" name="birincisayi">
-  </p>
-  <p>
-    <label for="ikincisayi">İkinci Sayı:</label>
-    <input type="text" name="ikincisayi">
-  </p>
-  <p>İşleminiz :</p>
-  <p>
-    <input type="submit" name="topla" value="Topla">
-    <input type="submit" name="cikar"  value="Çıkar">
-    <input type="submit" name="carp" value="Çarp">
-    <input type="submit" name="bol" value="Böl">
-  </p>
-</form>
+	div{
+		text-align: center;
+		background-color: #080F0F;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: 500px;
+        padding: 20px;
+        width: 320px;	
+	}
 
-<?php  } ?>
+
+</style>
+    <title>Document</title>
+</head>
+<body>
+	<div>
+		<form method="POST" action="calc.php"> 
+<h2>My Calculator</h2>
+First Number:<input name="first_number" value=""><br> <br>
+Other Number:<input name="second_number" value=""><br> <br>
+<input id="operator" type="submit" name="calculation" value="+">
+<input id="operator"  type="submit" name="calculation" value="-"> <br>
+<input id="operator"  type="submit" name="calculation" value="x"> 
+<input id="operator"  type="submit" name="calculation" value="/"><br>
+<input id="operator"  type="submit" name="calculation" value="f"> 
+<input id="operator"  type="submit" name="calculation" value="p"> <br><br>
+<input id="operator"  type="submit" name="calculation" value="d"> 
+
+<br>Result: <input id="myvalue"  type='text' value="<?php echo @$ans; ?>" readonly><br>
+</form> 
+	</div>
+</body>
+</html>
